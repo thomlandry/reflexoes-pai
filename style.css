@@ -1,0 +1,707 @@
+:root { --gold:#bd9557; --sepia:#422b17; --paper:#e8d4aa; }
+
+* { box-sizing:border-box; }
+
+html, body { margin:0; min-height:100%; }
+
+body { background:#21170f; color:#e9d9bb; font-family:'IM Fell English',Georgia,serif; overflow-x:hidden; }
+
+.atmosphere { position:fixed; inset:0; z-index:-1; background:radial-gradient(ellipse at 50% 36%,#755237 0%,#3d281b 39%,#100e0d 92%),repeating-linear-gradient(90deg,#ffffff03 0px,transparent 3px,transparent 8px); }
+
+.scene { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:26px 10px 32px; }
+
+.intro { text-align:center; margin-bottom:18px; }
+
+.eyebrow { letter-spacing:.27em; font-size:10px; color:#d2ae75; }
+
+h1 { font-family:'Great Vibes',cursive; font-size:clamp(45px,6vw,76px); font-weight:400; margin:8px 0 0; line-height:1.06; color:#e5c79c; text-shadow:0 4px 10px #120906; }
+
+.intro p { margin:7px 0; font-size:14px; color:#c4ad8d; }
+
+.book-stage { display:flex; justify-content:center; align-items:center; width:100%; min-height: min(68vh,590px); }
+
+#book { filter:drop-shadow(15px 22px 24px #090503bf); }
+
+.sheet { overflow:hidden; position:relative; }
+
+.cover { background:radial-gradient(circle at 36% 28%,#805436 0%,#5c3824 37%,#301c14 85%,#1d120f 100%); border:8px solid #291a12; box-shadow:inset 0 0 0 2px #ad824e,inset 0 0 0 6px #382017,inset 0 0 25px 14px #140b08; color:var(--gold); }
+
+.leather-grain { position:absolute;inset:0;background:repeating-linear-gradient(34deg,#fff1 0px,transparent 1px,transparent 5px,#0001 7px),radial-gradient(circle at 76% 70%,transparent,#10090650 70%);opacity:.5; }
+
+.cover-frame { position:absolute;inset:17px;border:3px double #b08651;box-shadow:0 0 0 4px #362018,0 0 0 6px #8e6035,inset 0 0 0 4px #482816; }
+
+.cover-frame-inner { position:absolute;inset:12px;border:1px solid #b88b50; }
+
+.cover-ornament { position:absolute; width:81%; left:9.5%; top:12%; aspect-ratio:1; color:#b88a50;filter:drop-shadow(1px 2px 0 #1b100c) drop-shadow(-1px -1px 0 #a9825333); }
+
+.seal { display:block; width:100%; height:100%; }
+
+.corner { position:absolute;font-size:43px;line-height:1;color:#c49a5a;text-shadow:1px 2px #130b08;opacity:.8; }
+
+.corner-tl{top:25px;left:26px}.corner-tr{top:25px;right:26px;transform:scaleX(-1)}.corner-bl{bottom:25px;left:26px;transform:scaleY(-1)}.corner-br{bottom:25px;right:26px;transform:scale(-1)}
+
+.cover-title { position:absolute;top:70%;width:100%;text-align:center;font-family:'Great Vibes',cursive;font-size:clamp(31px,4vw,43px);line-height:.95;color:#e3bd80;text-shadow:1px 3px 3px #170e0a; }
+
+.cover-subtitle { position:absolute;top:88%;width:100%;text-align:center;font-size:9px;letter-spacing:.15em;color:#c4a36b; }
+
+.strap { position:absolute;right:-5px;width:21%;height:18px;background:linear-gradient(#29170e,#704329 35%,#3b2117 85%,#160d0a);box-shadow:0 3px 5px #0e0908;transform:rotate(-2deg);border-block:1px solid #805233; }
+
+.strap::before { content:'✥';position:absolute;left:18%;top:-4px;color:#b88b54;text-shadow:1px 1px #1b100b; }
+
+.strap-top{top:22%}.strap-bottom{bottom:20%}
+
+.spine-studs { position:absolute;left:5px;top:23%;bottom:23%;display:flex;flex-direction:column;justify-content:space-between; }
+
+.spine-studs i { width:6px;height:6px;border-radius:50%;background:#c29e68;box-shadow:1px 1px 2px #0b0807; }
+
+.back-medallion { position:absolute;top:38%;width:100%;text-align:center;font-size:110px;opacity:.74; }
+
+.back-text{top:75%}
+
+.parchment { background-color:#ead9b3; color:var(--sepia); background-image:radial-gradient(ellipse at 5% 4%,#8c542c4d,transparent 38%),radial-gradient(ellipse at 92% 94%,#70411e55,transparent 43%),radial-gradient(ellipse at 80% 12%,#aa7e4244,transparent 28%),radial-gradient(ellipse at 38% 60%,#f8ecc380,transparent 55%),repeating-linear-gradient(0deg,#4b311006 0px,#fff0 3px,#6a3e100b 4px,#fff0 6px); box-shadow:inset 0 0 29px #67401e6b,inset 0 0 8px #77512e85; border:1px solid #99744a; }
+
+.parchment::after { content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 38px 7px #764a2860; }
+
+.page-border { position:absolute;inset:13px 12px;border:1px solid #8b623b70;pointer-events:none;z-index:1; }
+
+.page-border::before,.page-border::after { content:'❧';position:absolute;font-size:23px;color:#7d54317d; }
+
+.page-border::before{top:-11px;left:-3px}.page-border::after{bottom:-11px;right:-3px;transform:rotate(180deg)}
+
+.page-content { position:relative; padding:46px 35px 40px; height:100%;overflow:hidden; }
+
+.chapter-no { text-align:center;font:10px 'Cormorant Garamond',serif;font-weight:700;letter-spacing:.22em; }
+
+h2 { text-align:center;font:normal 46px/1 'Great Vibes',cursive;margin:13px 0 14px;color:#4f301b; }
+
+.divider-floral { text-align:center;letter-spacing:12px;font-size:21px;color:#946a3e;margin:16px 0 23px; }
+
+.page-content p { font:20px/1.35 'Cormorant Garamond',Georgia,serif;margin:0 0 16px;text-align:justify; }
+
+.dropcap::first-letter { float:left;font:65px/.74 'IM Fell English',Georgia,serif;margin:8px 6px 0 0;color:#6e3d1d; }
+
+.page-number { position:absolute;bottom:25px;left:0;right:0;text-align:center;font:15px 'IM Fell English',serif; }
+
+.curl { position:absolute;z-index:2;font-size:26px;color:#89572f80; }.curl-top{top:9px;right:24px}.curl-bottom{bottom:8px;left:25px;transform:rotate(180deg)}
+
+.inside-title { text-align:center;margin-top:29%;font:57px 'Great Vibes',cursive; }.botanical-center{text-align:center;font-size:100px;color:#8b623c}.inscription{font:italic 23px/1.4 'Cormorant Garamond',serif;text-align:center;margin:25px; }
+
+.specimen .page-content {padding:30px 28px 35px;display:flex;flex-direction:column;align-items:center;}
+
+.specimen h2{font-size:34px;margin:7px 0 12px}.specimen-image { width:100%;min-height:0;flex:1;background:url('assets/pagina-referencia.png') center center / contain no-repeat;filter:sepia(.15) contrast(1.06);mix-blend-mode:multiply; }
+
+.specimen-caption { font:italic 12px 'Cormorant Garamond',serif;text-align:center;margin:5px 0 12px; }
+
+.decorated-page {display:flex;flex-direction:column;align-items:center}.botanical-art {height:61%;width:95%;filter:sepia(.4);}.botanical-caption {font-style:italic!important;text-align:center!important;font-size:16px!important;}
+
+.ending { font:58px 'Great Vibes',cursive;text-align:center;color:#714c2c;margin-top:25px; }
+
+.controls {display:flex;align-items:center;justify-content:center;gap:22px;margin-top:16px;}
+
+button { background:linear-gradient(#6b492e,#3a2418);color:#f2dbaf;border:1px solid #ac824e;border-radius:5px;padding:12px 18px;font:17px 'IM Fell English',Georgia,serif;cursor:pointer;transition:background .2s,transform .2s;min-width:126px; }
+
+button:hover:not(:disabled) {background:#825c38;transform:translateY(-2px)}button:disabled{opacity:.35;cursor:default}
+
+.page-indicator {display:flex;flex-direction:column;align-items:center;gap:3px;min-width:80px;font-size:14px;}
+
+.page-indicator .line{width:55px;height:1px;background:#9b794d}.page-indicator #page-total{font-size:10px;letter-spacing:1px;color:#b9a180}
+
+.hint{font-size:12px;color:#ac9578;margin-top:13px;text-align:center}
+
+@media(max-width:600px){.scene{padding:20px 5px}.intro{margin-bottom:8px}.intro p{font-size:12px}.book-stage{min-height:480px}.page-content{padding:27px 20px 27px}.page-content p{font-size:16px;line-height:1.24;margin-bottom:10px}h2{font-size:33px;margin:9px 0}.divider-floral{margin:9px 0 13px;font-size:16px}.dropcap::first-letter{font-size:47px}.corner{font-size:25px}.cover-frame{inset:10px}.cover-title{font-size:29px}.cover-subtitle{font-size:7px}.controls{gap:8px}button{min-width:100px;font-size:14px;padding:10px}.specimen .page-content{padding:23px 17px}.specimen h2{font-size:27px}.botanical-caption{font-size:12px!important}}
+
+
+
+/* ===== EDIÇÃO DE 300 ANOS: COURO, PATINA E PERGAMINHO ===== */
+
+body { background:#100b08; }
+
+.atmosphere {
+
+  background:
+
+    radial-gradient(ellipse at 50% 12%, #9b714744 0%,transparent 51%),
+
+    repeating-linear-gradient(90deg,#05030222 0 3px,#49311e1a 4px 34px),
+
+    linear-gradient(155deg,#302019,#100c0a 65%,#1b100a);
+
+}
+
+#book { filter: drop-shadow(8px 13px 5px #0009) drop-shadow(19px 35px 22px #000b); }
+
+.cover {
+
+ background:
+
+   linear-gradient(110deg,#0c090797,transparent 19%,transparent 72%,#0b0708bb),
+
+   radial-gradient(ellipse at 42% 22%, #c89b5135,transparent 58%),
+
+   url('assets/couro_300_anos.jpg') center/cover,
+
+   #3e2719;
+
+ border: 9px ridge #3b2718;
+
+ box-shadow:
+
+   inset 0 0 0 2px #a2763d,
+
+   inset 0 0 0 5px #24120c,
+
+   inset 0 0 0 8px #61452b,
+
+   inset 0 0 33px 15px #100907,
+
+   4px 4px 3px #0e090a;
+
+}
+
+.leather-grain {
+
+ opacity:.85;
+
+ background:
+
+    repeating-linear-gradient(81deg,#fff1 0 1px,transparent 1px 6px,#0003 7px 8px),
+
+    radial-gradient(ellipse at 70% 50%,transparent 20%,#0a05058b 95%);
+
+ mix-blend-mode:multiply;
+
+}
+
+.leather-scars {
+
+ position:absolute;inset:0;pointer-events:none;opacity:.7;
+
+ background:
+
+  repeating-linear-gradient(158deg,transparent 0 54px,#07040242 55px,#e6c28e0b 56px,transparent 58px 97px),
+
+  radial-gradient(ellipse at 25% 63%,#180d09a6,transparent 22%),
+
+  radial-gradient(ellipse at 78% 9%,#1007039c,transparent 28%);
+
+}
+
+.cover-frame {
+
+ border:3px groove #765630;
+
+ box-shadow: 1px 2px 1px #070504, -1px -1px 1px #d3a56c80,0 0 0 5px #24140f,0 0 0 7px #997345,inset 0 0 0 5px #3b2315;
+
+}
+
+.cover-ornament, .corner { color:#a8844f; filter:drop-shadow(1px 2px 1px #120a08); }
+
+.seal { filter:drop-shadow(1px 1px 0 #dfb57c65) drop-shadow(-2px -2px 2px #0c0908); }
+
+.cover-title { color:#b99a6b;text-shadow:1px 1px 1px #e1bf8155,2px 4px 3px #0b0808; }
+
+.strap { background:linear-gradient(#1b1009,#704329 20%,#321c11 63%,#170b07);box-shadow:0 5px 7px #000b; }
+
+.spine-studs i { background:radial-gradient(circle at 30% 25%,#dec28b,#725532 65%,#24150e); }
+
+.parchment {
+
+ background:
+
+   radial-gradient(ellipse at 3% 5%,#56331b36,transparent 35%),
+
+   radial-gradient(ellipse at 100% 100%,#68401e54,transparent 45%),
+
+   url('assets/pergaminho_300_anos.jpg') center/100% 100%,
+
+   #dcc593;
+
+ border:1px solid #86623b;
+
+ box-shadow:inset 0 0 16px #4f321887,inset 0 0 54px #7d4b235b;
+
+}
+
+.parchment::before {
+
+ content:'';position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.65;
+
+ background:
+
+   repeating-radial-gradient(ellipse at 70% 30%, transparent 0 2px, #764e1808 3px 4px,transparent 5px 9px),
+
+   linear-gradient(90deg,#65431c20,transparent 8%,transparent 88%,#51341930);
+
+ mix-blend-mode:multiply;
+
+}
+
+.parchment::after { box-shadow:inset 0 0 23px 6px #63401978,inset 0 0 3px #35200fa6; }
+
+.page-border {border-color:#64442485;box-shadow:0 0 0 2px #a8824221,inset 0 0 0 3px #b18a4e19;}
+
+.page-content p {color:#352215;text-shadow:0 0 .4px #35221555;}
+
+.chapter-no,.page-number {color:#65421f;}
+
+.specimen-image {filter:sepia(.25) contrast(1.1) brightness(.94);}
+
+/* The original illustrations remain visible as image assets, but pages are actual HTML. */
+
+@media (prefers-reduced-motion: reduce) {button {transition:none;}}
+
+
+
+/* ==== PERSONALIZAÇÃO DA COLETÂNEA BÍBLICA ==== */
+
+.intro { max-width: 860px; padding:0 12px; }
+
+.intro h1 { font-family:'Cormorant Garamond', Georgia, serif; font-weight:600; letter-spacing:.015em; font-size:clamp(28px,4.8vw,53px); line-height:1.1; }
+
+.intro .eyebrow { font-size:clamp(9px,1.5vw,11px); }
+
+.intro p {line-height:1.45;}
+
+.cover { background-image:linear-gradient(110deg,#0c090797,transparent 19%,transparent 72%,#0b0708bb),radial-gradient(ellipse at 42% 22%, #c89b5135,transparent 58%),url('assets/couro_300_anos.jpg'); }
+
+/* Nenhuma imagem figurativa na capa: apenas a textura de couro e elementos tipográficos. */
+
+.cover-layout { position:absolute; inset:49px 34px; display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;z-index:2; }
+
+.cover-mark { font-size:clamp(26px,4vw,42px);line-height:1;color:#b7945c;text-shadow:0 2px 2px #110b08; }
+
+.cover-heading {font:600 clamp(21px,3.2vw,31px)/1.05 'Cormorant Garamond',Georgia,serif;color:#e1c18a;text-shadow:2px 3px 3px #130a06; text-wrap:balance;}
+
+.cover-rule {font-size:17px;letter-spacing:.38em;color:#b99b64;}
+
+.cover-tagline {font:italic 500 clamp(17px,2.5vw,23px)/1.15 'Cormorant Garamond',Georgia,serif;color:#d7b47f;}
+
+.cover-author {margin-top:22px;font:600 14px/1.3 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;color:#d2b787;text-transform:uppercase;}
+
+.center-text {text-align:center!important;font-weight:600!important;font-size:21px!important;}
+
+.title-leaf {display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;}
+
+.title-leaf h2 {font-size:clamp(32px,3vw,45px);}
+
+.leaf-ornament {font-size:75px;color:#926e42;line-height:1;}
+
+.edition-note {text-align:center!important;font-style:italic!important;font-size:17px!important;}
+
+.editorial-note {font-style:italic!important;font-size:14px!important;opacity:.74;margin-top:18px!important;text-align:center!important;}
+
+.author-monogram {border:2px double #80562c;outline:1px solid #9f7a43;outline-offset:4px;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;margin:10px auto 25px;font:600 27px 'Cormorant Garamond',serif;color:#69431f;}
+
+.author-page h3 {font:600 23px 'Cormorant Garamond',Georgia,serif;text-align:center;margin:0 0 20px;color:#58351c;}
+
+.back-design {position:absolute;inset:26% 0 auto;text-align:center;font-size:115px;color:#ab8553;opacity:.72;}
+
+.back-message {position:absolute;bottom:22%;left:12%;width:76%;text-align:center;font:600 18px/1.1 'Cormorant Garamond',serif;color:#cbae78;}
+
+.book-stage {min-height:0;}
+
+.sheet .page-content {isolation:isolate;}
+
+@media(max-width:700px) {
+
+  .scene {min-height:100dvh;justify-content:flex-start;gap:10px;padding:22px 8px 24px;}
+
+  .intro {margin:0 auto 4px;}
+
+  .intro h1 {font-size:clamp(25px,6.6vw,37px);margin:8px 0;}
+
+  .intro p {font-size:12px;}
+
+  .book-stage {width:100%;min-height:0;}
+
+  #book {max-width:100%;}
+
+  .controls {width:100%;gap:10px;margin-top:4px;}
+
+  .controls button {min-width:0;flex:1;max-width:142px;min-height:44px;padding:10px 8px;}
+
+  .page-indicator {flex:0 0 96px;min-width:0;font-size:12px;}
+
+  .hint {max-width:300px;line-height:1.4;margin:0;}
+
+  .cover-layout {inset:35px 26px;gap:10px;}
+
+  .cover-heading {font-size:clamp(19px,6vw,29px);}
+
+  .cover-author {font-size:11px;letter-spacing:.035em;margin-top:10px;}
+
+  .cover-tagline {font-size:18px;}
+
+  .page-content {padding:35px 25px 36px;}
+
+  .page-content p {font-size:clamp(15px,4.15vw,19px);line-height:1.25;margin-bottom:11px;}
+
+  h2 {font-size:clamp(29px,7vw,39px);}
+
+  .author-monogram {width:62px;height:62px;font-size:20px;margin:6px auto 15px;}
+
+  .author-page h3 {font-size:20px;margin-bottom:10px;}
+
+  .chapter-no {font-size:9px;}
+
+  .divider-floral {margin:10px 0 13px;}
+
+  .page-number {bottom:19px;}
+
+}
+
+@media(max-width:380px) {
+
+  .page-content {padding:26px 18px 30px;}
+
+  .page-content p {font-size:15px;margin-bottom:8px;}
+
+  .author-monogram {display:none;}
+
+  .cover-frame {inset:11px;}
+
+}
+
+
+
+
+
+/* ===== REFINAMENTO: CAPA MINIMALISTA + LEITURA DE TEXTOS LONGOS ===== */
+
+/* Nada invade a faixa de rodapé: ela fica separada da área de texto. */
+
+.sheet.parchment { overflow: hidden; }
+
+.sheet.parchment .page-content {
+
+  position: relative;
+
+  height: calc(100% - 104px);
+
+  margin-top: 34px;
+
+  padding: 0 31px 0;
+
+  overflow-x: hidden;
+
+  overflow-y: auto;
+
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+
+  scrollbar-color: #91704760 transparent;
+
+  isolation: isolate;
+
+}
+
+.sheet.parchment .page-content::-webkit-scrollbar { width: 3px; }
+
+.sheet.parchment .page-content::-webkit-scrollbar-thumb { background: #91704765; border-radius: 6px; }
+
+.sheet.parchment .page-number {
+
+  position: absolute;
+
+  z-index: 3;
+
+  bottom: 25px;
+
+  left: 27px;
+
+  right: 27px;
+
+  padding-top: 9px;
+
+  border-top: 1px solid #865e3545;
+
+  background: transparent;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  pointer-events: none;
+
+}
+
+/* 16px para leitura densa, com aproximadamente 20 linhas de corpo por página. */
+
+.sheet.parchment .page-content p {
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+
+  font-size: 16px;
+
+  line-height: 1.27;
+
+  margin-bottom: 9px;
+
+  text-align: justify;
+
+  hyphens: auto;
+
+}
+
+.sheet.parchment .page-content .dropcap::first-letter {
+
+  font-size: 42px;
+
+  line-height: .8;
+
+  margin: 5px 5px 0 0;
+
+}
+
+.sheet.parchment .page-content h2 {
+
+  font-size: 34px;
+
+  line-height: 1.05;
+
+  margin: 7px 0 8px;
+
+}
+
+.sheet.parchment .page-content .chapter-no { font-size: 9px; }
+
+.sheet.parchment .page-content .divider-floral {
+
+  font-size: 14px;
+
+  letter-spacing: 8px;
+
+  margin: 6px 0 12px;
+
+}
+
+.sheet.parchment .page-content .editorial-note {font-size: 12px!important; margin-top: 12px!important;}
+
+.sheet.parchment .page-content .center-text {font-size: 17px!important;}
+
+.sheet.parchment .page-content .edition-note {font-size: 14px!important;}
+
+.sheet.parchment .page-content .ending {font-size: 36px; margin-top: 15px;}
+
+.sheet.parchment .page-content.title-leaf { gap: 8px; }
+
+.sheet.parchment .page-content .leaf-ornament {font-size: 40px;}
+
+.sheet.parchment .page-content .author-monogram {width: 58px;height: 58px;font-size: 18px; margin: 5px auto 12px;}
+
+.sheet.parchment .page-content h3 {font-size: 19px;margin-bottom: 10px;}
+
+/* O couro ainda tem a textura antiga, mas sem símbolos, medalhões ou frutos. */
+
+.cover .corner, .cover .cover-mark, .cover .back-design {display: none!important;}
+
+.cover .cover-frame {inset: 19px; border: 1px solid #a9824c9c; box-shadow: 0 0 0 5px #20120e82;}
+
+.cover .cover-frame-inner {inset: 10px;border: 1px solid #b88b5040;}
+
+.cover .cover-layout {inset: 52px 39px;gap: 20px;}
+
+.cover .cover-heading {font-size: 30px;line-height: 1.08;}
+
+.cover .cover-rule {width: 54%;height: 1px;background: linear-gradient(90deg,transparent,#b99b64,transparent);font-size: 0;}
+
+.cover .cover-tagline {font-size: 21px;}
+
+.cover .cover-author {margin-top: 22px;font-size: 13px;}
+
+.cover.back .back-message {bottom: 46%;font-size: 17px;}
+
+@media (max-width: 700px) {
+
+  .sheet.parchment .page-content {height: calc(100% - 83px);margin-top: 25px;padding: 0 22px;}
+
+  .sheet.parchment .page-content p {font-size: 14px;line-height: 1.23;margin-bottom: 7px;}
+
+  .sheet.parchment .page-content h2 {font-size: 29px;}
+
+  .sheet.parchment .page-number {bottom: 17px;left: 19px;right: 19px;font-size: 11px;}
+
+  .cover .cover-layout {inset: 40px 27px;gap: 14px;}
+
+  .cover .cover-heading {font-size: clamp(19px,5.5vw,27px);}
+
+  .cover .cover-tagline {font-size: 17px;}
+
+  .cover .cover-author {font-size: 10px;margin-top: 15px;}
+
+}
+
+@media (max-width: 380px) {
+
+  .sheet.parchment .page-content {padding: 0 18px;height: calc(100% - 79px);}
+
+  .sheet.parchment .page-content p {font-size: 13px;line-height: 1.2;}
+
+  .sheet.parchment .page-content h2 {font-size: 27px;}
+
+}
+
+
+
+/* ===== ASSINATURA MANUSCRITA E RODAPÉ RESERVADO ===== */
+
+/* Reservamos uma faixa inteira: o texto nunca entra sob a assinatura. */
+
+.sheet.parchment .page-content {
+
+  height: calc(100% - 126px);
+
+  margin-top: 32px;
+
+  padding: 0 32px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+}
+
+.sheet.parchment .page-number {
+
+  left: 30px; right: auto; bottom: 27px;
+
+  border: 0; padding: 0; text-align: left;
+
+  font-family: 'Cormorant Garamond', Georgia, serif;
+
+  font-size: 13px;
+
+}
+
+.sheet.parchment .page-meta {
+
+  position: absolute;
+
+  z-index: 4;
+
+  right: 31px; bottom: 21px;
+
+  width: min(66%, 230px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  text-align: right;
+
+  pointer-events: none;
+
+}
+
+/* Linha delicada acima da assinatura (item 5). */
+
+.sheet.parchment .page-meta::before {
+
+  content: ''; width: 84px; height: 1px; margin-bottom: 5px;
+
+  background: linear-gradient(90deg, transparent, rgba(90,52,29,.54));
+
+}
+
+.sheet.parchment .page-signature {
+
+  font-family: 'Great Vibes', 'Brush Script MT', cursive;
+
+  font-size: 34px; font-weight: 400; line-height: 1;
+
+  color: #56351e; letter-spacing: 1px;
+
+  text-shadow: 0 1px 0 rgba(255,245,216,.3);
+
+}
+
+.sheet.parchment .page-date {
+
+  margin-top: 4px; font: italic 500 12px/1.2 'Cormorant Garamond', Georgia, serif;
+
+  color: #694e36; letter-spacing: .25px;
+
+}
+
+@media (max-width:700px) {
+
+  .sheet.parchment .page-content {
+
+    height: calc(100% - 110px); margin-top: 25px; padding: 0 22px;
+
+  }
+
+  .sheet.parchment .page-number {bottom: 23px;left: 21px;right: auto;}
+
+  .sheet.parchment .page-meta {right: 21px;bottom: 17px;width: 68%;}
+
+  .sheet.parchment .page-signature {font-size: 27px;}
+
+  .sheet.parchment .page-date {font-size: 10.5px;}
+
+  .sheet.parchment .page-meta::before {width: 68px;}
+
+}
+
+@media (max-width:380px) {
+
+  .sheet.parchment .page-content {height: calc(100% - 104px);padding: 0 18px;}
+
+  .sheet.parchment .page-meta {right: 17px;}
+
+  .sheet.parchment .page-number {left: 17px;}
+
+}
+
+/* ===== LEITURA NÍTIDA, PÁGINAS AUTOMÁTICAS E RETRATO ===== */
+.parchment { background-color: #f1e3c4; background-image:radial-gradient(ellipse at 0% 0%,#9a774037,transparent 35%),radial-gradient(ellipse at 100% 100%,#8e6a3b35,transparent 37%),linear-gradient(135deg,#f6ecd6,#ecd9b3 52%,#f5e8cb); }
+.parchment::before {opacity:.18;}
+.parchment::after {box-shadow:inset 0 0 21px 4px #7b583a3b;}
+.sheet.parchment .page-content {height:calc(100% - 111px);margin-top:29px;padding:0 32px;overflow:hidden!important;}
+.sheet.parchment .page-content p {color:#24170e!important;font-size:18px;line-height:1.32;font-weight:600;text-shadow:none!important;text-align:left;hyphens:auto;overflow-wrap:break-word;margin:0 0 11px;}
+.sheet.parchment .page-content h2 {color:#362015;font-size:32px;}
+.sheet.parchment .page-content .chapter-no {color:#49301d;font-size:10px;}
+.sheet.parchment .page-content .divider-floral {color:#704b2a;}
+.sheet.parchment .page-number,.sheet.parchment .page-date {color:#45301d;}
+.sheet.parchment .page-signature {color:#3c2415;}
+.sheet.parchment .page-content .dropcap::first-letter{font-size:45px;color:#472713;}
+.sheet.parchment .page-content.continuation {padding-top:0;}
+.continuation .continuation-label {font:700 11px/1.3 'Cormorant Garamond',serif;letter-spacing:.15em;text-align:center;color:#644222;margin-bottom:13px;border-bottom:1px solid #8b603e66;padding-bottom:10px;}
+.sheet.parchment .page-content .continuation p:first-of-type {margin-top:0;}
+.author-page .page-content {text-align:center;}
+.author-photo-button {min-width:0;display:block;position:relative;margin:9px auto 12px;width:148px;padding:5px;border:1px solid #8a633e;border-radius:60px 60px 8px 8px;background:linear-gradient(#b19065,#694725);box-shadow:0 5px 12px #3d250f5c;overflow:hidden;cursor:zoom-in;transform:translateZ(0);}
+.author-photo-button img {display:block;width:100%;height:166px;object-fit:cover;object-position: center 25%;filter:sepia(.12) contrast(1.12);border-radius:54px 54px 4px 4px;transition:transform .3s,filter .3s;}
+.author-photo-button:hover img,.author-photo-button:focus-visible img {transform:scale(1.055);filter:sepia(0) contrast(1.12);}
+.author-photo-button:hover {transform:none;}
+.author-photo-button .photo-caption {display:block;padding:4px 1px 0;font:italic 11px 'Cormorant Garamond',Georgia,serif;color:#ffebc9;}
+.author-page .page-content h3 {margin-bottom:12px;color:#332013;}
+.portrait-modal[hidden]{display:none!important;}
+.portrait-modal {position:fixed;inset:0;z-index:10000;background:#0b0708e8;display:flex;justify-content:center;align-items:center;padding:45px 20px;backdrop-filter:blur(9px);animation:portrait-in .25s ease-out;}
+.portrait-modal img {width:auto;max-width:min(90vw,640px);max-height:83vh;object-fit:contain;border:6px solid #bd975f;border-radius:8px;box-shadow:0 20px 70px #000b;}
+.portrait-close {position:absolute;top:20px;right:20px;border-radius:50%;min-width:44px;width:44px;height:44px;padding:0;font-size:30px;z-index:1;}
+@keyframes portrait-in {from{opacity:0}to{opacity:1}}
+/* Página de medição fora da vista, mas com tamanho real. */
+#page-measurer {position:fixed;left:-20000px;top:0;width:390px;height:540px;visibility:hidden;pointer-events:none;z-index:-10;}
+#page-measurer .sheet {position:relative;width:390px;height:540px;}
+@media(max-width:700px) {.sheet.parchment .page-content {height:calc(100% - 111px);margin-top:29px;padding:0 32px;}.sheet.parchment .page-content p{font-size:18px;line-height:1.32;margin-bottom:11px;}.sheet.parchment .page-content h2{font-size:32px}.sheet.parchment .page-content .chapter-no{font-size:10px}}
+@media(max-width:380px){.sheet.parchment .page-content{height:calc(100% - 111px);padding:0 32px}.sheet.parchment .page-content p{font-size:18px;line-height:1.32}}
+@media(prefers-reduced-motion:reduce){.portrait-modal{animation:none}.author-photo-button img{transition:none}}
+
+/* Tópicos da meditação: marcadores nítidos e boa distância entre itens. */
+.sheet.parchment .page-content ul.meditation-topics {
+  list-style: disc outside;
+  padding-left: 24px;
+  margin: 4px 0 14px;
+  color: #24170e;
+  font: 600 17px/1.36 'Cormorant Garamond', Georgia, serif;
+}
+.sheet.parchment .page-content ul.meditation-topics li {
+  padding-left: 2px;
+  margin: 0 0 7px;
+  overflow-wrap: break-word;
+}
+.sheet.parchment .page-content ul.meditation-topics li::marker {color:#754728;font-size:.9em;}
+.sheet.parchment .page-content ul.meditation-topics strong {color:#3d2312;font-weight:700;}
